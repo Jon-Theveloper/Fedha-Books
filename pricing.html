@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pricing | Fedha Books</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        body, html { font-family: 'lato', montserrat; margin:0; padding:0; overflow-x:hidden;}
+        .animated-bg{position:fixed;width:100%;height:100%;background-color:#fff;background-image:linear-gradient(45deg,#e63946 1px,transparent 1px),linear-gradient(225deg,#e63946 5px,transparent 4px);background-size:100px 100px;z-index:-1;}
+    </style>
+</head>
+<body class="text-gray-800">
+    <div class="animated-bg"></div>
+    <nav class="relative bg-white">
+        <div class="relative h-12">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#e63946] via-red-700 to-red-800"></div>
+            <div class="flex items-center justify-around h-full text-white font-medium text-sm uppercase tracking-wider">
+                <a href="index.html" class="text-white hover:text-gray-900">Home</a>
+                <a href="about.html" class="text-white hover:text-gray-900">About</a>
+                <a href="pricing.html" class="text-white hover:text-gray-900">Pricing</a>
+                <a href="resources.html" class="text-white hover:text-gray-900">Resources</a>
+                <a href="contact.html" class="text-white hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl font-extrabold text-red-700">Simple, Transparent Pricing</h2>
+                <p class="mt-4 text-xl text-gray-600">Choose the plan that fits your business needs.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-gray-50 rounded-2xl shadow-lg p-8 text-center" data-aos="fade-right">
+                    <h3 class="text-2xl font-bold text-red-600 mb-4">Starter</h3>
+                    <p class="text-gray-600 mb-6">For small businesses and startups.</p>
+                    <div class="text-4xl font-extrabold text-gray-900 mb-2">$29<span class="text-lg font-medium text-gray-500">/mo</span></div>
+                    <ul class="text-left space-y-3 mb-6 text-gray-700">
+                        <li>Up to 3 team members</li>
+                        <li>Basic dashboard & reporting</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="#" class="px-6 py-2 rounded bg-red-600 text-white font-semibold hover:bg-gray-900 transition">Get Started</a>
+                </div>
+                <div class="bg-white rounded-2xl shadow-2xl border-2 border-red-600 p-8 text-center" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold text-red-700 mb-4">Professional</h3>
+                    <p class="text-gray-600 mb-6">For growing teams and established businesses.</p>
+                    <div class="text-4xl font-extrabold text-gray-900 mb-2">$79<span class="text-lg font-medium text-gray-500">/mo</span></div>
+                    <ul class="text-left space-y-3 mb-6 text-gray-700">
+                        <li>Up to 15 team members</li>
+                        <li>Advanced analytics</li>
+                        <li>Integrations & API</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="#" class="px-6 py-2 rounded bg-red-700 text-white font-semibold hover:bg-gray-900 transition">Start Free Trial</a>
+                </div>
+                <div class="bg-gray-50 rounded-2xl shadow-lg p-8 text-center" data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-red-600 mb-4">Enterprise</h3>
+                    <p class="text-gray-600 mb-6">Custom solutions for large organizations.</p>
+                    <div class="text-4xl font-extrabold text-gray-900 mb-2">Contact</div>
+                    <ul class="text-left space-y-3 mb-6 text-gray-700">
+                        <li>Unlimited team members</li>
+                        <li>Custom integrations</li>
+                        <li>Dedicated account manager</li>
+                        <li>24/7 premium support</li>
+                    </ul>
+                    <a href="contact.html" class="px-6 py-2 rounded bg-red-600 text-white font-semibold hover:bg-gray-900 transition">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 text-white pt-16 pb-3 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center text-gray-400">
+            © 2025 FedhaBooks. All rights reserved.
+        </div>
+    </footer>
+    <script>
+        AOS.init({duration:800,easing:'ease-in',once:false});
+        feather.replace();
+    </script>
+</body>
+</html>
