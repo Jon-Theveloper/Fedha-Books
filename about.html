@@ -14,20 +14,26 @@
     </style>
 </head>
 <body class="text-gray-800">
-    <div class="animated-bg">
-    <nav class="relative bg-white">
+    <!-- Animated Gradient Nav -->
+    <div class="relative bg-white">
         <div class="relative h-12">
-            <div class="absolute inset-0 bg-gradient-to-r from-[#e63946] via-red-700 to-red-800"></div>
-            <div class="flex items-center justify-around h-full text-white font-medium text-sm uppercase tracking-wider">
-                <a href="index.html" class="text-white hover:text-gray-900">Home</a>
-                <a href="about.html" class="text-white hover:text-gray-900">About</a>
-                <a href="pricing.html" class="text-white hover:text-gray-900">Pricing</a>
-                <a href="resources.html" class="text-white hover:text-gray-900">Resources</a>
-                <a href="contact.html" class="text-white hover:text-gray-900">Contact</a>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#e63946] via-red-700 to-red-800 animate-marquee"></div>
+                <nav class="flex items-center justify-around h-full text-white font-medium text-sm uppercase tracking-wider">
+                    <div class="relative flex items-center space-x-10">
+                        <!-- Nav Links -->
+                            <a href="#features" class="text-white hover:text-gray-900 hidden lg:inline">Features</a>
+                                <a href="#about" class="text-white hover:text-gray-900 hidden lg:inline">About</a>
+                                <a href="pricing.html" class="text-white hover:text-gray-900">Pricing</a>
+                                <a href="resources.html" class="block text-white hover:text-gray-900">Resources</a>
+                                <a href="contact.html" class="block text-white hover:text-gray-900">Contact</a>
+                            <a href="#" class="text-white bg-red-600 px-4 py-2 hidden lg:inline rounded-md hover:bg-gray-900">Login</a>
+                        </div>
+                    </div>
+                </nav>
             </div>
         </div>
-    </nav>
     </div>
+    
     <section class="py-20 bg-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
