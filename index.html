@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fedha Books</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+ 
+        }
+        .animate-marquee {
+            animation: marquee 0s linear infinite;
+        }
+        body, html {
+            font-family: 'lato', montserrat;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .animated-bg{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+            background-image: linear-gradient(45deg, #e63946 1px, transparent 1px), linear-gradient(225deg, #e63946 5px, transparent 4px);
+            background-size: 100px 100px;
+            z-index: -1;
+        }
+        #dashbg, #feat{
+           backdrop-filter: blur(3px);
+        }
+        .testimonial-gradient {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(245,245,245,0.95) 100%);
+        }
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .logo-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+        .logo-item {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .logo-item img {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            border-radius: 100%;
+        }
+        .logo-item:hover {
+            z-index: 10;
+        }
+        .logo-item:hover img {
+            transform: scale(2.3);
+            opacity: 1 !important;
+            filter: none !important;
+        }
+        .logo-item:hover ~ .logo-item {
+            transform: translateX(10px);
+        }
+        .logo-item:nth-child(odd):hover ~ .logo-item {
+            transform: translateX(-10px);
+        }
+        .swiper-pagination-bullet {
+            background: #e63946 !important;
+            opacity: 0.3 !important;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1 !important;
+        }
+        .swiper-slide {
+            opacity: 0 !important;
+            transition: opacity 0.5s ease;
+        }
+        .swiper-slide-active {
+            opacity: 1 !important;
+        }
+        .footer-link:hover {
+            color: #e63946;
+            transform: translateX(4px);
+        }
+        .logo-hover:hover {
+            filter: brightness(0) saturate(100%) invert(30%) sepia(89%) saturate(1352%) hue-rotate(330deg) brightness(93%) contrast(84%);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+    <div class="animated-bg">
+        <canvas id="particles"></canvas>
+    </div>
+    <!-- Testimonial Section -->
+    <section class="py-20 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Testimonial Carousel -->
+                <div class="testimonial-gradient rounded-2xl p-8 shadow-xl" data-aos="fade-right">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <!-- Slide 1 -->
+                            <div class="swiper-slide">
+                                <div class="flex flex-col space-y-6">
+                                    <h3 class="text-3xl font-bold text-red-700 leading-tight">"This platform transformed our financial operations. The automation alone saved us 20+ hours per week."</h3>
+                                    <p class="text-lg text-gray-700">We've seen a 30% increase in efficiency since implementing their solution. The team provides exceptional support and the platform is incredibly intuitive.</p>
+                                    <div class="flex items-center">
+                                        <img src="http://static.photos/people/200x200/1" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                                        <div>
+                                            <p class="font-semibold text-red-700">Sarah Johnson</p>
+                                            <p class="text-red-700">CFO, TechCorp</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="swiper-slide">
+                                <div class="flex flex-col space-y-6">
+                                    <h3 class="text-3xl font-bold text-red-700 leading-tight">"The reporting features gave us insights we never had before."</h3>
+                                    <p class="text-lg text-gray-600">Our finance team can now focus on strategy rather than manual data entry. The dashboards are beautifully designed and highly functional.</p>
+                                    <div class="flex items-center">
+                                        <img src="http://static.photos/people/200x200/2" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                                        <div>
+                                            <p class="font-semibold text-red-700">Michael Chen</p>
+                                            <p class="text-red-700">Director of Finance, GrowthCo</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="swiper-pagination mt-8"></div>
+                    </div>
+                </div>
+
+                <!-- Client Logos -->
+                <div data-aos="fade-left">
+                    <h3 class="text-xl font-semibold text-gray-500 mb-8 text-center lg:text-left">TRUSTED BY INNOVATIVE COMPANIES</h3>
+                    <div class="logo-grid">
+                        <div class="logo-item">
+                            <img src="http://static.photos/technology/120x60/1" alt="Client logo" class="h-12 w-auto opacity-70">
+                        </div>
+                        <div class="logo-item">
+                            <img src="http://static.photos/technology/120x60/2" alt="Client logo" class="h-12 w-auto opacity-70">
+                        </div>
+                        <div class="logo-item">
+                            <img src="http://static.photos/technology/120x60/3" alt="Client logo" class="h-12 w-auto opacity-70">
+                        </div>
+                        <div class="logo-item">
+                            <img src="http://static.photos/technology/120x60/4" alt="Client logo" class="h-12 w-auto opacity-70">
+                        </div>
+                        <div class="logo-item">
+                            <img src="http://static.photos/technology/120x60/5" alt="Client logo" class="h-12 w-auto opacity-70">
+                        </div>
+                        <div class="logo-item">
+                            <img src="http://static.photos/technology/120x60/6" alt="Client logo" class="h-12 w-auto opacity-70">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Dashboard Section -->
+    <section id="dashbg" class="py-20" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-red-700 sm:text-4xl">Interactive Dashboard</h2>
+                <p class="mt-4 text-xl text-red-700 max-w-2xl mx-auto">See your financial data come to life with our real-time dashboard</p>
+            </div>
+            
+            <div class="bg-white rounded-3xl shadow-2xl p-8 relative overflow-hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Metric 1 -->
+                    <div class="bg-red-50 rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="dollar-sign" class="w-6 h-6 text-red-600"></i>
+                        </div>
+                        <p class="text-2xl font-bold text-gray-900">$2.4M</p>
+                        <p class="text-gray-600 mt-2">Monthly Revenue</p>
+                        <div class="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-red-600 rounded-full animate-pulse" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Metric 2 -->
+                    <div class="bg-blue-50 rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="trending-up" class="w-6 h-6 text-blue-600"></i>
+                        </div>
+                        <p class="text-2xl font-bold text-gray-900">+32%</p>
+                        <p class="text-gray-600 mt-2">Growth Rate</p>
+                        <div class="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-blue-600 rounded-full animate-pulse" style="width: 32%"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Metric 3 -->
+                    <div class="bg-green-50 rounded-2xl p-6 text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i data-feather="users" class="w-6 h-6 text-green-600"></i>
+                        </div>
+                        <p class="text-2xl font-bold text-gray-900">1,248</p>
+                        <p class="text-gray-600 mt-2">Active Users</p>
+                        <div class="mt-4 h-2 bg-gray-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-green-600 rounded-full animate-pulse" style="width: 62%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chart Area -->
+                <div class="bg-gray-100 rounded-2xl p-6" data-aos="fade-up">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-lg font-semibold text-gray-900">Revenue Trends</h3>
+                        <div class="flex space-x-2">
+                            <span class="px-3 py-1 bg-red-100 text-red-600 text-sm rounded-full">Monthly</span>
+                            <span class="px-3 py-1 bg-gray-200 text-gray-600 text-sm rounded-full">Quarterly</span>
+                            <span class="px-3 py-1 bg-gray-200 text-gray-600 text-sm rounded-full">Yearly</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Animated Chart -->
+                    <div class="h-64 relative">
+                        <div class="absolute inset-0 flex items-end space-x-4">
+                            <div class="flex-1 bg-red-200 rounded-t-lg animate-pulse" style="height: 60%"></div>
+                            <div class="flex-1 bg-red-300 rounded-t-lg animate-pulse" style="height: 75%"></div>
+                            <div class="flex-1 bg-red-400 rounded-t-lg animate-pulse" style="height: 85%"></div>
+                            <div class="flex-1 bg-red-500 rounded-t-lg animate-pulse" style="height: 70%"></div>
+                            <div class="flex-1 bg-red-600 rounded-t-lg animate-pulse" style="height: 90%"></div>
+                            <div class="flex-1 bg-red-700 rounded-t-lg animate-pulse" style="height: 95%"></div>
+                            <div class="flex-1 bg-red-800 rounded-t-lg animate-pulse" style="height: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Live Updates -->
+                <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-8" data-aos="fade-up">
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Recent Transactions</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between py-2 animate-pulse">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                                    <div>
+                                        <div class="h-4 bg-gray-200 rounded w-24"></div>
+                                        <div class="h-3 bg-gray-200 rounded w-16 mt-1"></div>
+                                    </div>
+                                </div>
+                                <div class="h-4 bg-green-200 rounded w-16"></div>
+                            </div>
+                            <div class="flex items-center justify-between py-2 animate-pulse" style="animation-delay: 0.2s">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                                    <div>
+                                        <div class="h-4 bg-gray-200 rounded w-24"></div>
+                                        <div class="h-3 bg-gray-200 rounded w-16 mt-1"></div>
+                                    </div>
+                                </div>
+                                <div class="h-4 bg-red-200 rounded w-16"></div>
+                            </div>
+                            <div class="flex items-center justify-between py-2 animate-pulse" style="animation-delay: 0.4s">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-8 h-8 bg-gray-200 rounded-full"></div>
+                                    <div>
+                                        <div class="h-4 bg-gray-200 rounded w-24"></div>
+                                        <div class="h-3 bg-gray-200 rounded w-16 mt-1"></div>
+                                    </div>
+                                </div>
+                                <div class="h-4 bg-green-200 rounded w-16"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl p-6 border border-gray-200">
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Performance Metrics</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Conversion Rate</span>
+                                    <span class="font-semibold text-green-600">+4.2%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-green-600 rounded-full animate-pulse" style="width: 68%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">Customer Satisfaction</span>
+                                    <span class="font-semibold text-blue-600">94%</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-blue-600 rounded-full animate-pulse" style="width: 94%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="text-gray-600">ROI</span>
+                                    <span class="font-semibold text-red-600">3.2x</span>
+                                </div>
+                                <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-red-600 rounded-full animate-pulse" style="width: 80%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Gradient Nav -->
+    <div class="relative bg-white">
+        <div class="relative h-12">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#e63946] via-red-700 to-red-800 animate-marquee"></div>
+                <nav class="flex items-center justify-around h-full text-white font-medium text-sm uppercase tracking-wider">
+                    <div class="relative flex items-center space-x-10">
+                        <!-- Nav Links -->
+                            <a href="#features" class="text-white hover:text-gray-900 hidden lg:inline">Features</a>
+                                <a href="#about" class="text-white hover:text-gray-900 hidden lg:inline">About</a>
+                                <a href="#" class="text-white hover:text-gray-900">Pricing</a>
+                                <a href="#" class="block text-white hover:text-gray-900">Resources</a>
+                                <a href="#" class="block text-white hover:text-gray-900">Contact</a>
+                            <a href="#" class="text-white bg-red-600 px-4 py-2 hidden lg:inline rounded-md hover:bg-gray-900">Login</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center" data-aos="fade-up">
+                <h2 class="text-3xl font-extrabold text-red-700 sm:text-4xl">Powerful Features</h2>
+                <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">Everything you need to streamline your financial operations</p>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+                <!-- Feature 1 -->
+                <div id="feat"class="text-center" data-aos="fade-right">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="bar-chart-2" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Real-time Analytics</h3>
+                    <p class="mt-3 text-gray-600">Get instant insights with our powerful dashboard and reporting tools.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div id="feat" class="text-center" data-aos="fade-down" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="shield" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Bank-level Security</h3>
+                    <p class="mt-3 text-gray-600">Your data is protected with enterprise-grade security measures.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div id="feat" class="text-center" data-aos="fade-left" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="refresh-cw" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Automation</h3>
+                    <p class="mt-3 text-gray-600">Automate repetitive tasks and focus on what matters most.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div id="feat" class="text-center" data-aos="fade-right" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="users" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Team Collaboration</h3>
+                    <p class="mt-3 text-gray-600">Work seamlessly with your team on financial projects and reports.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div id="feat" class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="credit-card" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Payment Processing</h3>
+                    <p class="mt-3 text-gray-600">Handle payments and invoices with our integrated payment system.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div id="feat" class="text-center" data-aos="fade-left" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i data-feather="cloud" class="w-8 h-8 text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900">Cloud Integration</h3>
+                    <p class="mt-3 text-gray-600">Sync with your favorite cloud services and accounting platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="reltive items-center justify-center py-20 bg-gray-100">
+        <div class="max-w-7xl  px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">About FedhaBooks</h2>
+                    <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                        We're on a mission to revolutionize financial management for businesses of all sizes. 
+                        Founded in 2020, our platform combines cutting-edge technology with deep financial expertise 
+                        to deliver solutions that save time, reduce errors, and provide valuable insights.
+                    </p>
+                    <p class="mt-4 text-lg text-gray-600 leading-relaxed">
+                        Our team of financial experts and engineers work together to create intuitive tools 
+                        that empower businesses to make better financial decisions and focus on growth.
+                    </p>
+                    <div class="mt-8 grid grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-3xl font-bold text-red-600">10K+</p>
+                            <p class="text-gray-600">Happy Customers</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-red-600">99.9%</p>
+                            <p class="text-gray-600">Uptime Guarantee</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-red-600">24/7</p>
+                            <p class="text-gray-600">Support Available</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-bold text-red-600">50+</p>
+                            <p class="text-gray-600">Integrations</p>
+                        </div>
+                    </div>
+                    <div class="relative flex mt-8">
+                        <a href="#" class="inline-flex items-center justify-center px-3 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-gray-900">
+                            Learn More<i data-feather="arrow-right" class="ml-2 w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+                    <img src="https://media.licdn.com/dms/image/v2/D4E0BAQEa3-TvX5DQrw/company-logo_200_200/company-logo_200_200/0/1729522637553/fedhatechnology_logo?e=2147483647&v=beta&t=s1Q9g0nKflOaSqXGFzekrP81KJnq7KhaL7JvcxtDs4o" alt="About FedhaBooks" class="w-full h-full rounded-2xl shadow-xl" data-aos="fade-left">
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-white" data-aos="fade-up">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Ready to transform your financial operations?</h2>
+            <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto">Join thousands of businesses already using our platform.</p>
+            <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-gray-900 md:py-4 md:text-lg md:px-10 transition duration-150 ease-in-out">
+                    Get Started
+                </a>
+                <a href="#" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-red-600 bg-white hover:bg-gray-900 md:py-4 md:text-lg md:px-10 transition duration-150 ease-in-out border-red-600">
+                    Book a Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-3 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-md bg-red-600 flex items-center justify-center mr-3">
+                            <span class="text-white font-bold text-xl">F</span>
+                        </div>
+                        <span class="text-xl font-bold">FedhaBooks</span>
+                    </div>
+                    <p class="mt-4 text-gray-400">Modern financial solutions for growing businesses.</p>
+                    <div class="mt-6 flex space-x-6">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                            <i data-feather="linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-200">
+                            <i data-feather="facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Company</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Press</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Help Center</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Webinars</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">API Docs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Privacy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Terms</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">Security</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white footer-link transition-all duration-200 inline-block">GDPR</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2025 FedhaBooks. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-gray-300 text-sm">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animate gradient background
+        const navGradient = document.querySelector('.animate-marquee');
+        navGradient.style.animationDuration = '5s';
+
+        // Add scroll animation for gradient speed
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            const speed = Math.max(2, 15 - (scrollPosition / 100));
+            navGradient.style.animationDuration = `${speed}s`;
+        });
+
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in',
+            once: false
+        });
+        
+        feather.replace();
+        
+        // Initialize Swiper
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 7000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            effect: 'fade',
+            fadeEffect: {
+                crossFade: true
+            }
+        });
+
+        // Animate feature icons on hover
+        document.querySelectorAll('.w-16').forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                anime({
+                    targets: icon,
+                    scale: 1.5,
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+            icon.addEventListener('mouseleave', () => {
+                anime({
+                    targets: icon,
+                    scale: 1,
+                    duration: 300,
+                    easing: 'easeOutQuad'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
